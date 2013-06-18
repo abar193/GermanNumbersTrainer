@@ -14,6 +14,20 @@ namespace GermanNumbersTrainer
         public MainForm()
         {
             InitializeComponent();
+            ssg = new Sounds.SoundSequenceGenerator();
+        }
+
+        Sounds.SoundSequenceGenerator ssg;
+
+        private void startButton_Click(object sender, EventArgs e) {
+            ssg.play(42152.34f);
+            Console.WriteLine("===");
+            /*ssg.play(123000456.070);
+            Console.WriteLine("===");
+            ssg.play(201021210.000);
+            Console.WriteLine("===");
+            ssg.play(0.142);
+            Console.WriteLine("===");*/
         }
 
     }

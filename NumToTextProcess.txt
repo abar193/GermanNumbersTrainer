@@ -1,0 +1,64 @@
+Example 1: 
+	123.456.789,123
+	1.000.000.000.000
+	//Spell Floor
+	123
+		=> 1 Hundert 3 und 20
+	Million
+	456 
+		=> 4 Hundert 6 und 50
+	Tausend
+	789
+		=> 7 Hundert 9 und 80
+	//Spell Decimal Part
+	Komma 
+	1
+	2
+	3
+
+Example 2: 
+	123.000.456,070
+	
+	//Spell Floor
+	123
+		=> 1 Hundert 3 und 20
+	Million
+	000
+		=> 
+	
+	456 
+		=> 4 Hundert 6 und 50
+	//Spell Decimal Part
+	Komma
+	0
+	7
+
+	
+Example 3:
+	201.021.210,000
+	
+	//Spell Floor
+	201
+		=> 2 Hundert 1
+	Million
+	021
+		=> 1 und 20
+	Tausend
+	210
+		=> 2 Hundert 10
+	//Spell Decimal Part
+	
+	
+	
+	
+Example 4:
+	0,142
+	
+	//Spell Floor
+	0
+		=> Null
+	//Spell Decimal Part
+	Komma 
+	1
+	4
+	2

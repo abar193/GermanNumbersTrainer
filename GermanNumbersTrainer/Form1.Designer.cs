@@ -32,14 +32,14 @@
             this.answersListBox = new System.Windows.Forms.ListBox();
             this.marksListBox = new System.Windows.Forms.ListBox();
             this.hintsGroup = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.playSoundAgain = new System.Windows.Forms.Button();
+            this.corectAnswerLabel = new System.Windows.Forms.Label();
             this.userAnswerLabel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.corectAnswerLabel = new System.Windows.Forms.Label();
-            this.playSoundAgain = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.settingsBox = new System.Windows.Forms.GroupBox();
-            this.commasCheckBox = new System.Windows.Forms.CheckBox();
             this.startButton = new System.Windows.Forms.Button();
+            this.commasCheckBox = new System.Windows.Forms.CheckBox();
             this.hintsGroup.SuspendLayout();
             this.settingsBox.SuspendLayout();
             this.SuspendLayout();
@@ -93,15 +93,23 @@
             this.hintsGroup.TabIndex = 3;
             this.hintsGroup.TabStop = false;
             // 
-            // label1
+            // playSoundAgain
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(6, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Your answer:";
+            this.playSoundAgain.Location = new System.Drawing.Point(9, 60);
+            this.playSoundAgain.Name = "playSoundAgain";
+            this.playSoundAgain.Size = new System.Drawing.Size(99, 23);
+            this.playSoundAgain.TabIndex = 2;
+            this.playSoundAgain.Text = "Play Sound Again";
+            this.playSoundAgain.UseVisualStyleBackColor = true;
+            // 
+            // corectAnswerLabel
+            // 
+            this.corectAnswerLabel.AutoSize = true;
+            this.corectAnswerLabel.Location = new System.Drawing.Point(94, 40);
+            this.corectAnswerLabel.Name = "corectAnswerLabel";
+            this.corectAnswerLabel.Size = new System.Drawing.Size(70, 13);
+            this.corectAnswerLabel.TabIndex = 1;
+            this.corectAnswerLabel.Text = "1234567,124";
             // 
             // userAnswerLabel
             // 
@@ -122,23 +130,15 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Right answer:";
             // 
-            // corectAnswerLabel
+            // label1
             // 
-            this.corectAnswerLabel.AutoSize = true;
-            this.corectAnswerLabel.Location = new System.Drawing.Point(94, 40);
-            this.corectAnswerLabel.Name = "corectAnswerLabel";
-            this.corectAnswerLabel.Size = new System.Drawing.Size(70, 13);
-            this.corectAnswerLabel.TabIndex = 1;
-            this.corectAnswerLabel.Text = "1234567,124";
-            // 
-            // playSoundAgain
-            // 
-            this.playSoundAgain.Location = new System.Drawing.Point(9, 60);
-            this.playSoundAgain.Name = "playSoundAgain";
-            this.playSoundAgain.Size = new System.Drawing.Size(99, 23);
-            this.playSoundAgain.TabIndex = 2;
-            this.playSoundAgain.Text = "Play Sound Again";
-            this.playSoundAgain.UseVisualStyleBackColor = true;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(6, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(81, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Your answer:";
             // 
             // settingsBox
             // 
@@ -149,6 +149,16 @@
             this.settingsBox.Size = new System.Drawing.Size(200, 54);
             this.settingsBox.TabIndex = 4;
             this.settingsBox.TabStop = false;
+            // 
+            // startButton
+            // 
+            this.startButton.Location = new System.Drawing.Point(103, 19);
+            this.startButton.Name = "startButton";
+            this.startButton.Size = new System.Drawing.Size(91, 23);
+            this.startButton.TabIndex = 1;
+            this.startButton.Text = "START";
+            this.startButton.UseVisualStyleBackColor = true;
+            this.startButton.Click += new System.EventHandler(this.startButton_Click);
             // 
             // commasCheckBox
             // 
@@ -161,15 +171,6 @@
             this.commasCheckBox.TabIndex = 0;
             this.commasCheckBox.Text = "Real numbers";
             this.commasCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // startButton
-            // 
-            this.startButton.Location = new System.Drawing.Point(103, 19);
-            this.startButton.Name = "startButton";
-            this.startButton.Size = new System.Drawing.Size(91, 23);
-            this.startButton.TabIndex = 1;
-            this.startButton.Text = "START";
-            this.startButton.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
