@@ -51,6 +51,7 @@
             this.inputTextBox.Size = new System.Drawing.Size(123, 20);
             this.inputTextBox.TabIndex = 0;
             this.inputTextBox.Text = "12345678901";
+            this.inputTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.inputTextBox_KeyPress);
             // 
             // answersListBox
             // 
@@ -101,6 +102,7 @@
             this.playSoundAgain.TabIndex = 2;
             this.playSoundAgain.Text = "Play Sound Again";
             this.playSoundAgain.UseVisualStyleBackColor = true;
+            this.playSoundAgain.Click += new System.EventHandler(this.playSoundAgain_Click);
             // 
             // corectAnswerLabel
             // 

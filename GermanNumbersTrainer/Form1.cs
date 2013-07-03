@@ -11,33 +11,86 @@ namespace GermanNumbersTrainer
 {
     public partial class MainForm : Form
     {
+        Sounds.SoundSequenceGenerator ssg;
+
         public MainForm()
         {
             InitializeComponent();
             ssg = new Sounds.SoundSequenceGenerator();
             ssg.SequenceFinished += new Sounds.SequenceFinishedDelegate(ssg_SequenceFinished);
             ssg.SequenceFinished += new Sounds.SequenceFinishedDelegate(ssg_SequenceFinished2);
+            
+            doubleEnabled = commasCheckBox.Checked;
+            randomGenerator = new Random();
         }
 
-        void ssg_SequenceFinished2() {
+        /* * * Logic * * */
+
+        bool doubleEnabled;
+        double doubleNumber;
+        int score;
+
+        const int maxSequences = 10;
+        const int maxPositionsInNumber = 7;
+
+        void userEnteredNumber(String input) 
+        {
+            Console.WriteLine(input);
+        }
+
+        void startRound()
+        {
+            score = 0;
+            generateNewNumber();
+        }
+
+        void generateNewNumber()
+        {
+            doubleNumber = randomGenerator.NextDouble();
+            int addOffset = 0;
+            if (doubleEnabled)
+                addOffset = randomGenerator.Next(4);
+
+            doubleNumber *= Math.Pow(10, maxPositionsInNumber + addOffset);
+            doubleNumber = Math.Truncate(doubleNumber);
+
+            if (doubleEnabled)
+                doubleNumber /= Math.Pow(10, addOffset);
+
+            Console.WriteLine(doubleNumber);
+            ssg.play(doubleNumber);
+        }
+                
+        /* * * Events * * */
+
+        Random randomGenerator;
+
+        void ssg_SequenceFinished2() 
+        {
             Console.WriteLine("Form:SequenceFinished#2");
         }
 
-        void ssg_SequenceFinished() {
+        void ssg_SequenceFinished() 
+        {
             Console.WriteLine("Form:SequenceFinished");
         }
 
-        Sounds.SoundSequenceGenerator ssg;
+        private void startButton_Click(object sender, EventArgs e) 
+        {
+            startRound();
+        }
 
-        private void startButton_Click(object sender, EventArgs e) {
-            ssg.play(15);
-            Console.WriteLine("===");
-            /*ssg.play(123000456.070);
-            Console.WriteLine("===");
-            ssg.play(201021210.000);
-            Console.WriteLine("===");
-            ssg.play(0.142);
-            Console.WriteLine("===");*/
+        private void playSoundAgain_Click(object sender, EventArgs e) 
+        {
+
+        }
+
+        private void inputTextBox_KeyPress(object sender, KeyPressEventArgs e) 
+        {
+            if (e.KeyChar == (char)13)
+			{
+                userEnteredNumber(inputTextBox.Text);
+			}
         }
 
     }
