@@ -20,7 +20,7 @@ namespace GermanNumbersTrainer
         Sounds.SoundSequenceGenerator ssg;
 
         private void startButton_Click(object sender, EventArgs e) {
-            ssg.play(42152.34f);
+            ssg.play(15119.34f);
             Console.WriteLine("===");
             /*ssg.play(123000456.070);
             Console.WriteLine("===");

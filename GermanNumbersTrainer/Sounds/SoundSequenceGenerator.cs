@@ -72,12 +72,16 @@ namespace GermanNumbersTrainer.Sounds
             hundred = number % 10;
 
             if(ten != 0) {
-                sequence.Add((ten * 10).ToString());
-                if (unit != 0)
-                    sequence.Add("und ");
+                if(ten == 1) {
+                    sequence.Add((ten * 10 + unit).ToString());
+                } else {
+                    sequence.Add((ten * 10).ToString());
+                    if (unit != 0)
+                        sequence.Add("und ");
+                }
             }
 
-            if (unit != 0) sequence.Add(unit.ToString());
+            if (unit != 0 && ten != 1) sequence.Add(unit.ToString());
             if (hundred != 0) sequence.Add((hundred * 100).ToString());
 
         }
