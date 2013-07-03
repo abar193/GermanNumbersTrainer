@@ -7,6 +7,8 @@ using System.Media;
 
 namespace GermanNumbersTrainer.Sounds
 {
+    public delegate void SPWFinishedDelegate();
+
     public class SoundPlayerWrap
     {
         /* * * STATIC * * */
@@ -23,6 +25,8 @@ namespace GermanNumbersTrainer.Sounds
         }
 
         /* * * OBJECT * * */
+
+        public SPWFinishedDelegate onFinish;
 
         public void playSequence()
         {
@@ -41,6 +45,9 @@ namespace GermanNumbersTrainer.Sounds
                 } else {
                     myWorker.CancelAsync();
                 }
+            } else {
+                if(onFinish != null) 
+                    onFinish();
             }
             
         }

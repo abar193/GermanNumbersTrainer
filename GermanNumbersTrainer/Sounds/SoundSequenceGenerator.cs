@@ -5,11 +5,16 @@ using System.Text;
 
 namespace GermanNumbersTrainer.Sounds
 {
+    public delegate void SequenceFinishedDelegate();
+
     public class SoundSequenceGenerator:SoundSequenceGeneratorInterface
     {
+        public event SequenceFinishedDelegate SequenceFinished;    
+
         public SoundSequenceGenerator()
         {
             spw = SoundPlayerWrap.instance();
+            spw.onFinish = new SPWFinishedDelegate(notifyFinished);
             spw.setParentGenerator(this);
         }
 
@@ -44,6 +49,12 @@ namespace GermanNumbersTrainer.Sounds
             createIntegerPart(i);
 
             spw.playSequence();
+        }
+
+        private void notifyFinished()
+        {
+            if (SequenceFinished != null)
+                SequenceFinished();
         }
 
         /* * * SEQUENCE GENERATING * * */
