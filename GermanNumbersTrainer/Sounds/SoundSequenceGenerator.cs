@@ -23,6 +23,7 @@ namespace GermanNumbersTrainer.Sounds
 
         public bool isPlaying { get { return playing; } }
 
+        //TODO: this
         public void stop()
         {
             playing = false;

@@ -46,40 +46,30 @@
             // 
             // inputTextBox
             // 
+            this.inputTextBox.Enabled = false;
             this.inputTextBox.Location = new System.Drawing.Point(13, 139);
             this.inputTextBox.Name = "inputTextBox";
             this.inputTextBox.Size = new System.Drawing.Size(123, 20);
             this.inputTextBox.TabIndex = 0;
-            this.inputTextBox.Text = "12345678901";
             this.inputTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.inputTextBox_KeyPress);
             // 
             // answersListBox
             // 
             this.answersListBox.FormattingEnabled = true;
-            this.answersListBox.Items.AddRange(new object[] {
-            "1234567,123",
-            "2345678,345",
-            "235,32",
-            "10",
-            "1",
-            "42,42",
-            "666,667"});
             this.answersListBox.Location = new System.Drawing.Point(12, 12);
             this.answersListBox.Name = "answersListBox";
             this.answersListBox.Size = new System.Drawing.Size(99, 121);
             this.answersListBox.TabIndex = 1;
+            this.answersListBox.SelectedIndexChanged += new System.EventHandler(this.answersListBox_SelectedIndexChanged);
             // 
             // marksListBox
             // 
             this.marksListBox.FormattingEnabled = true;
-            this.marksListBox.Items.AddRange(new object[] {
-            "V",
-            "X",
-            "V"});
             this.marksListBox.Location = new System.Drawing.Point(117, 12);
             this.marksListBox.Name = "marksListBox";
             this.marksListBox.Size = new System.Drawing.Size(19, 121);
             this.marksListBox.TabIndex = 2;
+            this.marksListBox.SelectedIndexChanged += new System.EventHandler(this.marksListBox_SelectedIndexChanged);
             // 
             // hintsGroup
             // 
@@ -96,6 +86,7 @@
             // 
             // playSoundAgain
             // 
+            this.playSoundAgain.Enabled = false;
             this.playSoundAgain.Location = new System.Drawing.Point(9, 60);
             this.playSoundAgain.Name = "playSoundAgain";
             this.playSoundAgain.Size = new System.Drawing.Size(99, 23);
@@ -109,18 +100,18 @@
             this.corectAnswerLabel.AutoSize = true;
             this.corectAnswerLabel.Location = new System.Drawing.Point(94, 40);
             this.corectAnswerLabel.Name = "corectAnswerLabel";
-            this.corectAnswerLabel.Size = new System.Drawing.Size(70, 13);
+            this.corectAnswerLabel.Size = new System.Drawing.Size(13, 13);
             this.corectAnswerLabel.TabIndex = 1;
-            this.corectAnswerLabel.Text = "1234567,124";
+            this.corectAnswerLabel.Text = "0";
             // 
             // userAnswerLabel
             // 
             this.userAnswerLabel.AutoSize = true;
             this.userAnswerLabel.Location = new System.Drawing.Point(94, 16);
             this.userAnswerLabel.Name = "userAnswerLabel";
-            this.userAnswerLabel.Size = new System.Drawing.Size(70, 13);
+            this.userAnswerLabel.Size = new System.Drawing.Size(13, 13);
             this.userAnswerLabel.TabIndex = 1;
-            this.userAnswerLabel.Text = "1234567,123";
+            this.userAnswerLabel.Text = "0";
             // 
             // label2
             // 
@@ -158,7 +149,7 @@
             this.startButton.Name = "startButton";
             this.startButton.Size = new System.Drawing.Size(91, 23);
             this.startButton.TabIndex = 1;
-            this.startButton.Text = "START";
+            this.startButton.Text = "Start";
             this.startButton.UseVisualStyleBackColor = true;
             this.startButton.Click += new System.EventHandler(this.startButton_Click);
             // 
@@ -173,6 +164,7 @@
             this.commasCheckBox.TabIndex = 0;
             this.commasCheckBox.Text = "Real numbers";
             this.commasCheckBox.UseVisualStyleBackColor = true;
+            this.commasCheckBox.CheckedChanged += new System.EventHandler(this.commasCheckBox_CheckedChanged);
             // 
             // MainForm
             // 
