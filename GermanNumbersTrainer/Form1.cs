@@ -20,7 +20,6 @@ namespace GermanNumbersTrainer
             InitializeComponent();
             ssg = new Sounds.SoundSequenceGenerator();
             ssg.SequenceFinished += new Sounds.SequenceFinishedDelegate(ssg_SequenceFinished);
-            ssg.SequenceFinished += new Sounds.SequenceFinishedDelegate(ssg_SequenceFinished2);
             
             doubleEnabled = commasCheckBox.Checked;
             randomGenerator = new Random();
@@ -94,7 +93,7 @@ namespace GermanNumbersTrainer
             try {
                 displayPairOfAnswerAndNumber((string)answersListBox.Items[index], pastNumbers[index]);
             } catch (Exception) {
-                Console.WriteLine("EXCEPTION. Somehow I passed wrong index to Form1.showHistoryAtIndex");
+                Console.WriteLine("EXCEPTION. Wrong index passed to Form1.showHistoryAtIndex");
             }
         }
 
@@ -118,10 +117,6 @@ namespace GermanNumbersTrainer
             inputTextBox.Enabled = false;
         }
 
-        void ssg_SequenceFinished2() 
-        {
-            Console.WriteLine("Form:SequenceFinished#2");
-        }
 
         void ssg_SequenceFinished() 
         {
