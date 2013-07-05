@@ -21,7 +21,10 @@ namespace GermanNumbersTrainer.Sounds
         /* * * USED BY FORM * * */
         private bool playing = false;
 
-        public bool isPlaying { get { return playing; } }
+        public bool isPlaying()
+        {
+            return playing;
+        }
 
         public void stop()
         {
@@ -53,6 +56,7 @@ namespace GermanNumbersTrainer.Sounds
 
         private void notifyFinished()
         {
+            playing = false;
             if (SequenceFinished != null)
                 SequenceFinished();
         }

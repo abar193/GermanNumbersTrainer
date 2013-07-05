@@ -10,5 +10,6 @@ namespace GermanNumbersTrainer.Sounds
         String nextFile();
         void allDone();
         void fileError();
+        bool isPlaying();
     }
 }

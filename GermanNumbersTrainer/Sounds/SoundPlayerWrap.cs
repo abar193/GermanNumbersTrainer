@@ -52,6 +52,11 @@ namespace GermanNumbersTrainer.Sounds
             
         }
 
+        public void stopPlaying()
+        {
+
+        }
+
         private SoundPlayer myPlayer;
         private SoundSequenceGeneratorInterface parentGenerator;
 
@@ -88,7 +93,7 @@ namespace GermanNumbersTrainer.Sounds
 
         private void playerCanceledAndStartPlayingNew()
         {
-            if(!myWorker.IsBusy)  {
+            if(!myWorker.IsBusy && parentGenerator.isPlaying())  {
                 myWorker.RunWorkerAsync();
             }
         }
