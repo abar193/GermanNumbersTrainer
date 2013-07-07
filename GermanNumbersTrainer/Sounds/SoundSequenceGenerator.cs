@@ -75,9 +75,9 @@ namespace GermanNumbersTrainer.Sounds
         }
 
         private List<String> sequence = null;
-        private string FilePrefix = "";
+        private string FilePrefix = @"../../Sounds/SoundFiles/";
 
-        private readonly string[] Parts = {"Tausend", "Million", "Milliarde"};
+        private readonly string[] Parts = {"Tausend.wav", "Million.wav", "Milliarde.wav"};
 
         private void appendPronounceOfThreeDiggits(long number) 
         {
@@ -90,16 +90,26 @@ namespace GermanNumbersTrainer.Sounds
 
             if(ten != 0) {
                 if(ten == 1) {
-                    sequence.Add((ten * 10 + unit).ToString());
+                    if (unit == 0) //10
+                        sequence.Add("10.wav");
+                    else if (unit < 3) //11, 12
+                        sequence.Add((10 + unit).ToString() + ".wav");
+                    else { //13, 14, ..., 19
+                        sequence.Add("zehn.wav");
+                        sequence.Add(unit.ToString() + ".wav");
+                    }
                 } else {
-                    sequence.Add((ten * 10).ToString());
+                    sequence.Add((ten * 10).ToString() + ".wav");
                     if (unit != 0)
-                        sequence.Add("und ");
+                        sequence.Add("und.wav");
                 }
             }
 
-            if (unit != 0 && ten != 1) sequence.Add(unit.ToString());
-            if (hundred != 0) sequence.Add((hundred * 100).ToString());
+            if (unit != 0 && ten != 1) sequence.Add(unit.ToString() + ".wav");
+            if (hundred != 0) {
+                sequence.Add("100.wav");
+                if(hundred != 1) sequence.Add((hundred).ToString() + ".wav");
+            }
 
         }
 
@@ -137,12 +147,12 @@ namespace GermanNumbersTrainer.Sounds
                 if(digg != 0 | wasAnyDiggit) 
                 {
                     wasAnyDiggit = true;
-                    sequence.Add(digg.ToString());
+                    sequence.Add(digg.ToString() + ".wav");
                 }
             }
 
             if (wasAnyDiggit)
-                sequence.Add("Comma");
+                sequence.Add("Comma.wav");
         }
 
         /* * * USED BY SPW * * */
@@ -153,7 +163,7 @@ namespace GermanNumbersTrainer.Sounds
             if (sequence.Count != 0) {
                 string retVal = sequence[sequence.Count - 1];
                 sequence.RemoveAt(sequence.Count - 1);
-                return retVal;
+                return FilePrefix + retVal;
             } else
                 return null;
         }

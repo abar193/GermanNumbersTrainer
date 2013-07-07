@@ -83,8 +83,11 @@ namespace GermanNumbersTrainer
                 doubleNumber /= Math.Pow(10, addOffset);
 
             inputTextBox.Text = "";
-            pastNumbers.Add(doubleNumber);
 
+            doubleNumber = 1062; //HACK
+            
+            pastNumbers.Add(doubleNumber);
+            
             ssg.play(doubleNumber);
         }
                 

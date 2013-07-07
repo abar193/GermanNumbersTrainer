@@ -117,6 +117,33 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Sounds\killed.wav" />
+    <Content Include="Sounds\SoundFiles\1.wav" />
+    <Content Include="Sounds\SoundFiles\10.wav" />
+    <Content Include="Sounds\SoundFiles\100.wav" />
+    <Content Include="Sounds\SoundFiles\11.wav" />
+    <Content Include="Sounds\SoundFiles\12.wav" />
+    <Content Include="Sounds\SoundFiles\1s.wav" />
+    <Content Include="Sounds\SoundFiles\2.wav" />
+    <Content Include="Sounds\SoundFiles\20.wav" />
+    <Content Include="Sounds\SoundFiles\3.wav" />
+    <Content Include="Sounds\SoundFiles\30.wav" />
+    <Content Include="Sounds\SoundFiles\4.wav" />
+    <Content Include="Sounds\SoundFiles\40.wav" />
+    <Content Include="Sounds\SoundFiles\5.wav" />
+    <Content Include="Sounds\SoundFiles\50.wav" />
+    <Content Include="Sounds\SoundFiles\6.wav" />
+    <Content Include="Sounds\SoundFiles\60.wav" />
+    <Content Include="Sounds\SoundFiles\7.wav" />
+    <Content Include="Sounds\SoundFiles\70.wav" />
+    <Content Include="Sounds\SoundFiles\8.wav" />
+    <Content Include="Sounds\SoundFiles\80.wav" />
+    <Content Include="Sounds\SoundFiles\9.wav" />
+    <Content Include="Sounds\SoundFiles\90.wav" />
+    <Content Include="Sounds\SoundFiles\Milliarde.wav" />
+    <Content Include="Sounds\SoundFiles\Million.wav" />
+    <Content Include="Sounds\SoundFiles\Tausend.wav" />
+    <Content Include="Sounds\SoundFiles\und.wav" />
+    <Content Include="Sounds\SoundFiles\zehn.wav" />
     <Content Include="Sounds\winner.wav" />
   </ItemGroup>
   <ItemGroup>

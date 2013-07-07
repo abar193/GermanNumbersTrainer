@@ -105,7 +105,7 @@ namespace GermanNumbersTrainer.Sounds
         private void playInBackground()
         {
             Console.WriteLine(myPlayer.SoundLocation);
-            myPlayer.SoundLocation = @"../../Sounds/winner.wav";
+            //myPlayer.SoundLocation = @"../../Sounds/winner.wav";
             myPlayer.PlaySync();
             //System.Threading.Thread.Sleep(1500);
         }
