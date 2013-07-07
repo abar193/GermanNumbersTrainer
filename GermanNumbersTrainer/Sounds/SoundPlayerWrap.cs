@@ -54,7 +54,7 @@ namespace GermanNumbersTrainer.Sounds
 
         public void stopPlaying()
         {
-
+            myWorker.CancelAsync();
         }
 
         private SoundPlayer myPlayer;

@@ -30,6 +30,7 @@ namespace GermanNumbersTrainer.Sounds
         public void stop()
         {
             playing = false;
+            spw.stopPlaying();
         }
 
         public void play(String s)
@@ -76,7 +77,7 @@ namespace GermanNumbersTrainer.Sounds
         private List<String> sequence = null;
         private string FilePrefix = "";
 
-        private readonly string[] Parts = {"Tausend", "Million", "Milliard"};
+        private readonly string[] Parts = {"Tausend", "Million", "Milliarde"};
 
         private void appendPronounceOfThreeDiggits(long number) 
         {
