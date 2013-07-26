@@ -176,8 +176,10 @@
             this.Controls.Add(this.marksListBox);
             this.Controls.Add(this.answersListBox);
             this.Controls.Add(this.inputTextBox);
+            this.MinimumSize = new System.Drawing.Size(357, 194);
             this.Name = "MainForm";
             this.Text = "GermanNumbers";
+            this.Resize += new System.EventHandler(this.MainForm_Resize);
             this.hintsGroup.ResumeLayout(false);
             this.hintsGroup.PerformLayout();
             this.settingsBox.ResumeLayout(false);

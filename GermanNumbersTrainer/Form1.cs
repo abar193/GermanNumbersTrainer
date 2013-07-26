@@ -18,6 +18,8 @@ namespace GermanNumbersTrainer
         public MainForm()
         {
             InitializeComponent();
+            saveRelativeSizes();
+
             ssg = new Sounds.SoundSequenceGenerator();
             ssg.SequenceFinished += new Sounds.SequenceFinishedDelegate(ssg_SequenceFinished);
             
@@ -83,8 +85,7 @@ namespace GermanNumbersTrainer
                 doubleNumber /= Math.Pow(10, addOffset);
 
             inputTextBox.Text = "";
-
-            doubleNumber = 1062; //HACK
+            this.ActiveControl = inputTextBox;
             
             pastNumbers.Add(doubleNumber);
             
@@ -120,6 +121,11 @@ namespace GermanNumbersTrainer
             inputTextBox.Enabled = false;
         }
 
+        void saveRelativeSizes()
+        {
+            this.ResizeRedraw = true;
+            Control c;
+        }
 
         void ssg_SequenceFinished() 
         {
@@ -141,6 +147,7 @@ namespace GermanNumbersTrainer
         private void playSoundAgain_Click(object sender, EventArgs e) 
         {
             ssg.play(doubleNumber);
+            this.ActiveControl = inputTextBox;
         }
 
         private void inputTextBox_KeyPress(object sender, KeyPressEventArgs e) 
@@ -163,6 +170,10 @@ namespace GermanNumbersTrainer
         private void marksListBox_SelectedIndexChanged(object sender, EventArgs e) {
             answersListBox.SelectedIndex = marksListBox.SelectedIndex;
             showHistoryAtIndex(marksListBox.SelectedIndex);
+        }
+
+        private void MainForm_Resize(object sender, EventArgs e) {
+
         }
 
     }
