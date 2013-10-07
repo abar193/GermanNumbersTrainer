@@ -143,7 +143,6 @@
     <Content Include="Sounds\SoundFiles\Million.wav" />
     <Content Include="Sounds\SoundFiles\Tausend.wav" />
     <Content Include="Sounds\SoundFiles\und.wav" />
-    <Content Include="Sounds\SoundFiles\zehn.wav" />
     <Content Include="Sounds\winner.wav" />
   </ItemGroup>
   <ItemGroup>
