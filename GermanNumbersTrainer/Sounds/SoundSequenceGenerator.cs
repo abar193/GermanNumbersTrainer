@@ -75,7 +75,7 @@ namespace GermanNumbersTrainer.Sounds
         }
 
         private List<String> sequence = null;
-        private string FilePrefix = @"../../Sounds/SoundFiles/";
+        private string FilePrefix = @"..\..\Sounds\SoundFiles\";
 
         private readonly string[] Parts = {"Tausend.wav", "Million.wav", "Milliarde.wav"};
 

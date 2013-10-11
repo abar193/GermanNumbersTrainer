@@ -30,15 +30,22 @@ namespace GermanNumbersTrainer.Sounds
 
         public void playSequence()
         {
-            nextSoundInSequence();
+            nextSoundInSequence(parentGenerator.nextFile());
         }
 
-        private void nextSoundInSequence()
+        /**
+         * Used mostly for unit tests for now, but also may be usefull somwhere.
+         */
+        public void forcePlay(String fileName)
         {
-            String s = parentGenerator.nextFile();
+            nextSoundInSequence(fileName);
+        }
+
+        private void nextSoundInSequence(String soundURL)
+        {
             
-            if(s != null) { 
-                myPlayer.SoundLocation = s;
+            if(soundURL != null) { 
+                myPlayer.SoundLocation = soundURL;
                 
                 if(!myWorker.IsBusy)  {
                     myWorker.RunWorkerAsync();

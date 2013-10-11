@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Resources;
+using System.Globalization;
 
 namespace GermanNumbersTrainer
 {
@@ -26,7 +27,7 @@ namespace GermanNumbersTrainer
             doubleEnabled = commasCheckBox.Checked;
             randomGenerator = new Random();
         }
-
+            
         /* * * Logic * * */
 
         bool doubleEnabled;
@@ -109,7 +110,9 @@ namespace GermanNumbersTrainer
         void displayPairOfAnswerAndNumber(String answer, double number) 
         {
             userAnswerLabel.Text = answer;
-            corectAnswerLabel.Text = (number.ToString() == answer) ? "-||-" : number.ToString();
+            //corectAnswerLabel.Text = (number.ToString() == answer) ? "-||-" : number.ToString();
+            //corectAnswerLabel.Text = number.ToString(new CultureInfo("es-ES", false));
+            corectAnswerLabel.Text = number.ToString(new CultureInfo(0x040A, false)); 
         }
 
         void stopTrainingDesignActions()
@@ -124,7 +127,7 @@ namespace GermanNumbersTrainer
         void saveRelativeSizes()
         {
             this.ResizeRedraw = true;
-            Control c;
+            //Control c;
         }
 
         void ssg_SequenceFinished() 
