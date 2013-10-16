@@ -15,6 +15,7 @@ namespace GermanNumbersTrainer
     public partial class MainForm : Form
     {
         Sounds.SoundSequenceGenerator ssg;
+        CultureInfo myCultureInfo;
 
         public MainForm()
         {
@@ -23,7 +24,9 @@ namespace GermanNumbersTrainer
 
             ssg = new Sounds.SoundSequenceGenerator();
             ssg.SequenceFinished += new Sounds.SequenceFinishedDelegate(ssg_SequenceFinished);
-            
+
+            myCultureInfo = new CultureInfo(0x040A, false);
+
             doubleEnabled = commasCheckBox.Checked;
             randomGenerator = new Random();
         }
@@ -35,14 +38,22 @@ namespace GermanNumbersTrainer
         int score;
 
         List<double> pastNumbers;
+        int lastDecimalOffset = 0;
 
         const int maxSequences = 10;
         const int maxPositionsInNumber = 7;
+
+        bool isAnswerCorrect(String answer, double correctAnswer, int diggsAfterComa)
+        {
+            double doubleAnswer = double.Parse(answer, myCultureInfo);
+            return Math.Abs(doubleAnswer - correctAnswer) <= (1 / Math.Pow(10, diggsAfterComa));
+        }
 
         void userEnteredNumber(String input) 
         {
             Console.WriteLine(input);
             answersListBox.Items.Add(input);
+
             if (input == doubleNumber.ToString())
                 marksListBox.Items.Add("+");
             else 
@@ -67,7 +78,8 @@ namespace GermanNumbersTrainer
 
             if (pastNumbers == null)
                 pastNumbers = new List<double>(10);
-            pastNumbers.Clear();
+            else 
+                pastNumbers.Clear();
 
             generateNewNumber();
         }
@@ -82,14 +94,15 @@ namespace GermanNumbersTrainer
             doubleNumber *= Math.Pow(10, maxPositionsInNumber + addOffset);
             doubleNumber = Math.Truncate(doubleNumber);
 
-            if (doubleEnabled)
+            if (addOffset > 0)
                 doubleNumber /= Math.Pow(10, addOffset);
 
             inputTextBox.Text = "";
             this.ActiveControl = inputTextBox;
             
             pastNumbers.Add(doubleNumber);
-            
+            lastDecimalOffset = addOffset;
+
             ssg.play(doubleNumber);
         }
                 
@@ -111,8 +124,7 @@ namespace GermanNumbersTrainer
         {
             userAnswerLabel.Text = answer;
             //corectAnswerLabel.Text = (number.ToString() == answer) ? "-||-" : number.ToString();
-            //corectAnswerLabel.Text = number.ToString(new CultureInfo("es-ES", false));
-            corectAnswerLabel.Text = number.ToString(new CultureInfo(0x040A, false)); 
+            corectAnswerLabel.Text = number.ToString(myCultureInfo);
         }
 
         void stopTrainingDesignActions()

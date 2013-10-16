@@ -5,14 +5,27 @@ using GermanNumbersTrainer.Sounds;
 namespace PlayingSoundsTests
 {
     [TestClass]
-    public class UnitTest1
+    public class SoundPlayingTests
     {
         [TestMethod]
-        public void TestMethod1()
+        public void EmptyStringFile()
         {
             SoundPlayerWrap spw = SoundPlayerWrap.instance();
             spw.forcePlay("");
-            Assert.IsFalse(false);
+        }
+
+        [TestMethod]
+        public void nullPassed()
+        {
+            SoundPlayerWrap spw = SoundPlayerWrap.instance();
+            spw.forcePlay(null);
+        }
+
+        [TestMethod]
+        public void wrongNamePassed()
+        {
+            SoundPlayerWrap spw = SoundPlayerWrap.instance();
+            spw.forcePlay(@"C:\this is an example of a wrong path\");
         }
     }
 }

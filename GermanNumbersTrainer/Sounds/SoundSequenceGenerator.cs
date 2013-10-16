@@ -40,20 +40,27 @@ namespace GermanNumbersTrainer.Sounds
 
         public void play(double r)
         {
+            if (this.isPlaying())
+                this.stop();
             Console.WriteLine("Playing float " + r.ToString());
             initializeSequence();
 
             appendDecimals((long)(Math.Round(r * 1000, 0) - ((long)r) * 1000));
             createIntegerPart((long)r);
             spw.playSequence();
+            playing = true;
+
         }
 
         public void play(int i)
         {
+            if (this.isPlaying())
+                this.stop();
             initializeSequence();
             createIntegerPart(i);
 
             spw.playSequence();
+            playing = true;
         }
 
         private void notifyFinished()

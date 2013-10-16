@@ -30,7 +30,9 @@ namespace GermanNumbersTrainer.Sounds
 
         public void playSequence()
         {
-            nextSoundInSequence(parentGenerator.nextFile());
+            if(parentGenerator != null) 
+                //Otherwise we just assume forcePlay was called and stop playing. May need to be fixed.
+                nextSoundInSequence(parentGenerator.nextFile()); 
         }
 
         /**
